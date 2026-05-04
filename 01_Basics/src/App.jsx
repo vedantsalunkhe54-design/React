@@ -22,7 +22,6 @@ function App() {
     else{
         // Counter = Counter + 1
        setCounter(Counter + 1)
-        console.log("Value added",Counter);
     }
 
     
