@@ -12,32 +12,32 @@ function App() {
             style={{backgroundColor: "red"}}>
               Red
             </button>
-              <button button onClick={() => setColor("blue")} 
+              <button onClick={() => setColor("blue")} 
               className="outline-none px-4 py-1 rounded-full text-white shadow-sm" 
               style={{backgroundColor: "blue"}}>
               Blue
             </button>
-              <button button onClick={() => setColor("purple")} 
+              <button onClick={() => setColor("purple")} 
               className="outline-none px-4 py-1 rounded-full text-white shadow-sm" 
               style={{backgroundColor: "purple"}}>
               Purple
             </button>            
-            <button button onClick={() => setColor("yellow")} 
+            <button onClick={() => setColor("yellow")} 
             className="outline-none px-4 py-1 rounded-full text-white shadow-sm" 
             style={{backgroundColor: "yellow", color:"black"}}>
               Yellow
             </button>            
-            <button button onClick={() => setColor("pink")} 
+            <button onClick={() => setColor("pink")} 
             className="outline-none px-4 py-1 rounded-full text-white shadow-sm" 
             style={{backgroundColor: "pink"}}>
               Pink
             </button>
-            <button button onClick={() => setColor("white")} 
-              className="outline-none px-4 py-1 rounded-full text-white shadow-sm" 
+            <button onClick={() => setColor("white")} 
+              className="outline-none px-4 py-1 rounded-full text-white shadow-sm " 
               style={{backgroundColor: "white", color:"black"}}>
               White
             </button>
-            <button button onClick={() => setColor("maroon")} 
+            <button onClick={() => setColor("maroon")} 
               className="outline-none px-4 py-1 rounded-full text-white shadow-sm " 
               style={{backgroundColor: "maroon"}}>
               Maroon
