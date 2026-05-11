@@ -9,7 +9,7 @@ export default function User () {
     return(
 
         <div className=" text-center bg-gray-600 text-white text-3xl p-4">
-            User: {userId}
+            User : {userId}
         </div>
     )
 }

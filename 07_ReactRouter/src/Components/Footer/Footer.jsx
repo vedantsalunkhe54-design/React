@@ -36,14 +36,9 @@ export default function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Follow us</h2>
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
-                                    <a
-                                        href="https://github.com/hiteshchoudhary"
-                                        className="hover:underline"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                    >
+                                    <Link to="/github">
                                         Github
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
                                     <Link to="/" className="hover:underline">
