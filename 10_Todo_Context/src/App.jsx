@@ -1,8 +1,12 @@
-import { TodoProvider } from "./TodoContext";
+import { TodoProvider } from "./Contexts/TodoContext";      
 
 function App() {
 
-    const [todos, setTodos] = useState();
+    const [todos, setTodos] = useState(() => {  
+        
+        const savedTodos = localStorage.getItem("todos");
+        return savedTodos ? JSON.parse(savedTodos) : [];
+    });
 
     const  addTodo = (Todomsg) => {
         setTodos(prev => [...prev, {id: Date.now(), Todomsg, completed: false}])
@@ -19,6 +23,9 @@ function App() {
     const toggleComplete = (id) => {
         setTodos(prev => prev.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo))
     };
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+
  
   return (
    <TodoProvider value={{tools, addTodo, updateTodo, deleteTodo, toggleComplete}}
