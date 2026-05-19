@@ -14,11 +14,11 @@ class Auth{
         this.account = new Account(this.client);
     }
 
-    async createAcoount({email, password, name}){
+    async createAccount({email, password, name}){
         try {
            const userAccount = await this.account.create(ID.unique(), email, password, name);
 
-           if(userAccoutn){
+           if(userAccount){
             // call another method
             return this.Login({email, password});
            }
@@ -58,8 +58,9 @@ class Auth{
 
 }
 
+}
 
-const AuthService = new Auth();
 
+const AuthService= new Auth();
 
-export default Auth;
+export default AuthService;

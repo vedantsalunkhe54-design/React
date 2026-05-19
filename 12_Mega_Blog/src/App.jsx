@@ -1,16 +1,31 @@
+import { useEffect, useState } from "react";
 import Config from "./Config/Config";
+import { useDispatch } from "react-redux";
+import authService from "./Appwrite/Auth";
+import {login, logout} from "./Store/AuthSlice";
 
 function App() {
+  const [loading,setLoading] = useState(true);
+  const dispatch = useDispatch();
 
-       console.log(Config.DBMS);
+  useEffect(() => {
+    authService.getCurrentUser()
+    .then((userData) => {
+      if(userData){
+        dispatch(login(userData));
+      } else {
+        dispatch(logout());
+      }
+    })
+    .finally(() => setLoading(false));
+  }, [])
 
-  return (
-    <>
-     <h1>Hello Vedant It's Time for creating your own BLOG</h1>
 
-     
-    </>
-  )
+  return !loading ? (
+    <div className="App">
+      <h1>Appwrite Authentication</h1>
+    </div>
+  ) : null;
 }
 
 export default App
