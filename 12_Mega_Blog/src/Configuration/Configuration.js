@@ -1,6 +1,6 @@
 import Config from "../Config/Config"
 
-import { Client, Databases, Storage} from "appwrite";
+import { Client, Databases, Query, Storage} from "appwrite";
 
 
 class Configuration{
@@ -84,7 +84,63 @@ class Configuration{
             throw error;
         }
     }
+
+    async getPosts(queries = [Query.equal("status", "active")]){
+        try {
+            return await this.Databases.listDocuments(
+                config.DBMS,
+                config.TABLE,
+                queries
+            );
+        } catch (error) {
+            throw error;
+        }
+
+    }
+
+      // upload file
+
+    async uploadFile({file}){
+        try {
+            return await.this.Storage.createFile(
+                config.STORAGE_BUCKET,
+                ID.unique(),
+                file
+            )
+        } catch (error) {
+            throw error;
+            return false;
+
+        }
 }
+    // delete file
+
+    async deleteFile(fileId){
+        try {
+            await this.Storage.deleteFile(
+                config.STORAGE_BUCKET,
+                fileId
+            )
+            return true;
+
+        } catch (error) {
+            throw error;
+            return false;
+        }
+
+}
+
+//get file preview
+
+  getFilePreview(fileId){
+    return this.Storage.getFilePreview(
+        config.STORAGE_BUCKET,
+        fileId
+    )
+}
+
+}
+
 
 const newConfiguration = new Configuration();
 
