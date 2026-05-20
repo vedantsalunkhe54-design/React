@@ -20,8 +20,8 @@ class Configuration{
     async createPost ({title, content, image, slug, status, userId}){
         try {
             return await this.Databases.createDocument(
-                config.DBMS,
-                 config.TABLE,
+                Config.DBMS,
+                Config.TABLE,
                 slug,
                 {
                     title,
@@ -40,8 +40,8 @@ class Configuration{
     async updatePost ({title, content, image, slug, status}){
         try {
             return await this.Databases.updateDocument(
-                config.DBMS,
-                config.TABLE,
+                Config.DBMS,
+                Config.TABLE,
                 slug,
                 {
                     title,
@@ -59,8 +59,8 @@ class Configuration{
     async deletePost(slug){
         try {
              await this.Databases.deleteDocument(
-                config.DBMS,
-                config.TABLE,
+                Config.DBMS,
+                Config.TABLE,
                 slug
                 )
                 return true;
@@ -75,8 +75,8 @@ class Configuration{
     async getPost(slug){
         try {
             return await this.Databases.getDocument(
-                config.DBMS,
-                config.TABLE,
+                Config.DBMS,
+                Config.TABLE,
                 slug
                 );
             
@@ -88,8 +88,8 @@ class Configuration{
     async getPosts(queries = [Query.equal("status", "active")]){
         try {
             return await this.Databases.listDocuments(
-                config.DBMS,
-                config.TABLE,
+                Config.DBMS,
+                Config.TABLE,
                 queries
             );
         } catch (error) {
@@ -130,7 +130,7 @@ class Configuration{
 
 }
 
-//get file preview
+    //get file preview
 
   getFilePreview(fileId){
     return this.Storage.getFilePreview(

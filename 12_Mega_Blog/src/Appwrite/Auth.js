@@ -42,10 +42,11 @@ class Auth{
 
  async getCurrentUser(){
     try {
+          console.log("Calling Appwrite...");
         return await this.account.get();
     } catch (error) {
         console.log("Error while accessing getCurrent User");
-        throw error;
+        return null;
     }
  }
     async logout(){
@@ -53,11 +54,9 @@ class Auth{
             return await this.account.deleteSessions();
         } catch (error) {
             console.log("Error while accessing logout");
-            throw error;
+            throw False;
         }
-
 }
-
 }
 
 
