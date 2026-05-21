@@ -138,9 +138,7 @@ class Configuration{
         fileId
     )
 }
-
 }
-
 
 const newConfiguration = new Configuration();
 
